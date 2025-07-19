@@ -1,0 +1,9 @@
+{
+  "$": {
+    "en": "English",
+    "cs": "Czech",
+    "btn": {
+      "submit": "Submit"
+    }
+  }
+}
