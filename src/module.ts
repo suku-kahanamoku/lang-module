@@ -49,12 +49,9 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Výchozí možnosti konfigurace Nuxt modulu
   defaults: {
-    lazy: true, // Povolení lazy načítání překladů
+    defaultLocale: "cs",
     strategy: "prefix_except_default", // Strategie pro generování URL s lokalizací
-    detectBrowserLanguage: {
-      useCookie: true, // Nepoužívat cookies pro detekci jazyka
-      cookieKey: "i18n_locale", // Klíč pro uložení jazyka v cookies
-    },
+    detectBrowserLanguage: false,
     experimental: {}, // Experimentální funkce (prázdné ve výchozím nastavení)
   },
 
@@ -73,10 +70,15 @@ export default defineNuxtModule<ModuleOptions>({
     const options = defu(_options || {}, {
       locales: [
         {
+          code: "en",
+          file: resolve("./runtime/assets/locales/en.json"),
+        },
+        {
           code: "cs",
-          files: [{ path: resolve("./runtime/assets/locales/cs.json") }],
+          file: resolve("./runtime/assets/locales/cs.json"),
         },
       ],
+      langDir: resolve("./runtime/assets/locales"),
     }) as ModuleOptions;
 
     // Přidání composables
