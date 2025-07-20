@@ -81,6 +81,11 @@ export default defineNuxtModule<ModuleOptions>({
       langDir: resolve("./runtime/assets/locales"),
     }) as ModuleOptions;
 
+    // Vynucení defaultLocale v i18n options
+    _nuxt.options.i18n = _nuxt.options.i18n || {};
+    _nuxt.options.i18n.defaultLocale =
+      options.defaultLocale || _nuxt.options.i18n.defaultLocale;
+
     // Přidání composables
     addImportsDir(resolve("./runtime/composables"));
 
