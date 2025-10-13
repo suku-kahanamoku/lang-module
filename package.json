@@ -1,6 +1,6 @@
 {
   "name": "@suku-kahanamoku/lang-module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Lang module",
   "repository": "@suku-kahanamoku/lang-module",
   "license": "MIT",
@@ -9,18 +9,24 @@
     ".": {
       "types": "./dist/types.d.mts",
       "import": "./dist/module.mjs"
-    }
+    },
+    "./types": "./types.d.ts"
   },
   "main": "./dist/module.mjs",
+  "types": "./types.d.ts",
   "typesVersions": {
     "*": {
       ".": [
         "./dist/types.d.mts"
+      ],
+      "types": [
+        "./types.d.ts"
       ]
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "types.d.ts"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build --failOnWarn=false",
