@@ -13,20 +13,16 @@
     "./types": "./types.d.ts"
   },
   "main": "./dist/module.mjs",
-  "types": "./types.d.ts",
+  "types": "./dist/runtime/types.d.ts",
   "typesVersions": {
     "*": {
       ".": [
         "./dist/types.d.mts"
-      ],
-      "types": [
-        "./types.d.ts"
       ]
     }
   },
   "files": [
-    "dist",
-    "types.d.ts"
+    "dist"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build --failOnWarn=false",
