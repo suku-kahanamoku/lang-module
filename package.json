@@ -1,6 +1,6 @@
 {
   "name": "@suku-kahanamoku/lang-module",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Lang module",
   "repository": "@suku-kahanamoku/lang-module",
   "license": "MIT",
@@ -10,7 +10,10 @@
       "types": "./dist/types.d.mts",
       "import": "./dist/module.mjs"
     },
-    "./types": "./types.d.ts"
+    "./types": {
+      "types": "./dist/runtime/types.d.ts",
+      "import": "./dist/runtime/types.d.ts"
+    }
   },
   "main": "./dist/module.mjs",
   "types": "./dist/runtime/types.d.ts",
