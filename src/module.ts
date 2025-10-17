@@ -66,25 +66,8 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(_options, _nuxt) {
     const { resolve } = createResolver(import.meta.url);
 
-    // Sloučení uživatelských možností s výchozími
-    const options = defu(_options || {}, {
-      locales: [
-        {
-          code: "en",
-          file: resolve("./runtime/assets/locales/en.json"),
-        },
-        {
-          code: "cs",
-          file: resolve("./runtime/assets/locales/cs.json"),
-        },
-      ],
-      langDir: resolve("./runtime/assets/locales"),
-    }) as ModuleOptions;
-
     // Vynucení defaultLocale v i18n options
     _nuxt.options.i18n = _nuxt.options.i18n || {};
-    _nuxt.options.i18n.defaultLocale =
-      options.defaultLocale || _nuxt.options.i18n.defaultLocale;
 
     // Přidání composables
     addImportsDir(resolve("./runtime/composables"));
@@ -102,7 +85,23 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Instalace i18n modulu, pokud není již nainstalován
     if (!hasNuxtModule("@nuxtjs/i18n")) {
-      await installModule("@nuxtjs/i18n", options);
+      await installModule("@nuxtjs/i18n");
     }
+
+    _nuxt.hook("i18n:registerModule", (register) => {
+      register({
+        langDir: resolve("./runtime/assets/locales"),
+        locales: [
+          {
+            code: "en",
+            file: "en.json",
+          },
+          {
+            code: "cs",
+            file: "cs.json",
+          },
+        ],
+      });
+    });
   },
 });
