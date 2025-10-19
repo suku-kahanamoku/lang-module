@@ -65,6 +65,7 @@ export default defineNuxtModule<ModuleOptions>({
    */
   async setup(_options, _nuxt) {
     const { resolve } = createResolver(import.meta.url);
+    _nuxt.options.i18n = defu(_nuxt.options.i18n, _options as any);
 
     _nuxt.hook("i18n:registerModule", (register) => {
       register({
@@ -98,7 +99,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Instalace i18n modulu, pokud není již nainstalován
     if (!hasNuxtModule("@nuxtjs/i18n")) {
-      await installModule("@nuxtjs/i18n", _options);
+      await installModule("@nuxtjs/i18n");
     }
   },
 });
