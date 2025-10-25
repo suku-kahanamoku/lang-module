@@ -13,3 +13,9 @@ declare module "@vue/runtime-core" {
     $tt: Composer["t"];
   }
 }
+
+declare module "vue" {
+  export interface ComponentCustomProperties {
+    $tt: Composer["t"];
+  }
+}
