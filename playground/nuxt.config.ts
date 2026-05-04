@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  compatibilityDate: "2026-05-04",
   modules: ["../src/module"],
   langModule: {},
   devtools: { enabled: true },
@@ -13,5 +14,10 @@ export default defineNuxtConfig({
         file: "./cs.json",
       },
     ],
+  },
+  vite: {
+    optimizeDeps: {
+      include: ["@vue/devtools-core", "@vue/devtools-kit"],
+    },
   },
 });
