@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.22
+
+[compare changes](https://undefined/undefined/compare/v1.0.21...v1.0.22)
+
+### 🏡 Chore
+
+- Update dependencies (b75aff2)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.21
 
 [compare changes](https://undefined/undefined/compare/v1.0.20...v1.0.21)
