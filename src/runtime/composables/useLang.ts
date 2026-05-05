@@ -25,6 +25,7 @@ interface ILocaleObject extends LocaleObject {
  *
  * @property {Composer} i18n - Instance i18n pro práci s lokalizací.
  * @property {ComposerTranslation} t - Překladová funkce.
+ * @property {ComputedRef<string>} locale - Aktuální kód jazyka (zkratka pro lang.value.code).
  * @property {ComputedRef<ILocaleObject[]>} langs - Seznam všech podporovaných jazyků.
  * @property {ComputedRef<ILocaleObject[]>} filtredLangs - Seznam jazyků kromě aktuálního.
  * @property {ComputedRef<ILocaleObject>} lang - Aktuální jazyková mutace.
@@ -32,6 +33,7 @@ interface ILocaleObject extends LocaleObject {
 interface ILang {
   i18n: Composer;
   t: Composer["t"];
+  locale: ComputedRef<string>;
   langs: ComputedRef<ILocaleObject[]>;
   filtredLangs: ComputedRef<ILocaleObject[]>;
   lang: ComputedRef<ILocaleObject>;
@@ -67,5 +69,7 @@ export const useLang = (): ILang => {
     langs.value.filter((l) => l.code !== i18n.locale.value)
   );
 
-  return { i18n, t, langs, lang, filtredLangs };
+  const locale = computed(() => i18n.locale.value);
+
+  return { i18n, t, locale, langs, lang, filtredLangs };
 };
