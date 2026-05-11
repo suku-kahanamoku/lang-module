@@ -30,7 +30,6 @@ export const useLocaleDetector = (
       lang: "",
       name: runtimeConfig?.i18n?.detectBrowserLanguage?.cookieKey,
     })?.toString() ||
-    tryHeaderLocale(event, { lang: "" })?.toString() ||
     runtimeConfig?.i18n?.defaultLocale
   );
 };
