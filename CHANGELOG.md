@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.26
+
+[compare changes](https://undefined/undefined/compare/v1.0.25...v1.0.26)
+
+### 🩹 Fixes
+
+- Remove tryHeaderLocale fallback to prevent browser language overriding default locale (349be35)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.25
 
 [compare changes](https://undefined/undefined/compare/v1.0.24...v1.0.25)
